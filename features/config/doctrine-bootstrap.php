@@ -6,11 +6,11 @@ use Doctrine\ORM\EntityManager;
 require_once __DIR__ . "/../../vendor/autoload.php";
 
 $isDevMode = true;
-$paths = ["/project/src/Infrastructure/Doctrine"];
+$paths = [ __DIR__ . "/../../src/Infrastructure/Doctrine"];
 
 $config = Setup::createYAMLMetadataConfiguration($paths, $isDevMode);
 
-$db = 'sqlite:/' . __DIR__ . '/../../var/db.sqlite';
+$db = 'sqlite:///' . __DIR__ . '/../../var/db.sqlite';
 
 $conn = [
     'url' => $db,

@@ -1,5 +1,9 @@
 language: php
 php:
   - 7.2
-before_script: composer install
-script: vendor/bin/phpspec run
+before_script:
+  - composer install
+  - touch var/db.sqlite
+script:
+  - vendor/bin/phpspec run
+  - vendor/bin/behat
