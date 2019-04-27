@@ -1,0 +1,8 @@
+Rummager\Service\Network\Ipv4Reserved:
+  type: entity
+  table: ipv4_reserved
+  id:
+    ip:
+      length: 45
+    mask:
+      type: integer

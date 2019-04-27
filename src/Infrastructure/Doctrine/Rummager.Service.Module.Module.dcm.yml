@@ -1,0 +1,11 @@
+Rummager\Service\Module\Module:
+  type: entity
+  table: module
+  id:
+    id:
+      type: integer
+  fields:
+    name:
+      length: 45
+    result_tab:
+      length: 45

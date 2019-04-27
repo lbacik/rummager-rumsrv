@@ -1,0 +1,12 @@
+Rummager\Service\Network\Ipv4ClassStatus:
+  type: entity
+  table: ipv4class_status
+  id:
+    id:
+      type: integer
+  fields:
+    name:
+      length: 45
+  uniqueConstraints:
+    name_idx:
+      columns: [ name ]

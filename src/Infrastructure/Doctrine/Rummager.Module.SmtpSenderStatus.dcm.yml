@@ -1,0 +1,12 @@
+Rummager\Module\SmtpSenderStatus:
+  type: entity
+  table: smtp_sender_status
+  id:
+    id:
+      type: integer
+  fields:
+    name:
+      length: 45
+  uniqueConstraints:
+    name_idx:
+      columns: [ name ]

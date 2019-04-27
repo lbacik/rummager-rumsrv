@@ -1,0 +1,20 @@
+Rummager\Service\Network\Ipv4Class:
+  type: entity
+  table: ipv4class
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    ip:
+      length: 15
+    mask:
+      length: 2
+    description:
+      length: 45
+  manyToOne:
+    status:
+      targetEntity: Rummager\Service\Network\Ipv4ClassStatus
+      joinColumn:
+        name: status

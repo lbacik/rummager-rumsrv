@@ -1,0 +1,29 @@
+Rummager\Service\Node:
+  type: entity
+  table: node
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    cid:
+      type: integer
+      default: 0
+    stime:
+      type: datetime
+  manyToOne:
+    status:
+      targetEntity: Rummager\Service\NodeStatus
+      joinColumn:
+        name: status
+    host:
+      targetEntity: Rummager\Service\Host\Host
+      inversedBy: nodes
+      joinColumn:
+        name: hid
+  oneToMany:
+    checks:
+      targetEntity: Rummager\Service\Check
+      mappedBy: node
+

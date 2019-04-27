@@ -1,0 +1,39 @@
+Rummager\Module\SmtpSender:
+  type: entity
+  table: smtp_sender
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  manyToOne:
+    check:
+      targetEntity: Rummager\Service\Check
+      joinColumn:
+        name: checkid
+        nullable: false
+    smtp:
+      targetEntity: Rummager\Module\Smtp
+      joinColumn:
+        name: smtpid
+        nullable: false
+    status:
+      targetEntity: Rummager\Module\SmtpSenderStatus
+      joinColumn:
+        name: status
+  fields:
+    msg:
+      type: text
+      nullable: false
+    conn_log:
+      type: text
+      nullable: true
+      default: null
+    create_time:
+      type: datetime
+      nullable: true
+      default: null
+    last_update:
+      type: datetime
+      nullable: true
+      default: null

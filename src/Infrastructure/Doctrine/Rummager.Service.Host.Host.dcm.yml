@@ -1,0 +1,33 @@
+Rummager\Service\Host\Host:
+  type: entity
+  table: host
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    name:
+      lenght: 128
+      unique: true
+    n:
+      type: integer
+      options:
+        default: 1
+    t:
+      type: integer
+      options:
+        default: 1
+    s:
+      type: integer
+      options:
+        default: 0
+    createTime:
+      type: datetime
+      column: create_time
+      options:
+        default: CURRENT_TIMESTAMP
+  oneToMany:
+    nodes:
+      targetEntity: Rummager\Service\Node
+      mappedBy: host

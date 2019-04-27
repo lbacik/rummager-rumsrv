@@ -1,0 +1,32 @@
+Rummager\Service\Check:
+  type: entity
+  table: check_process
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  manyToOne:
+    node:
+      targetEntity: Rummager\Service\Node
+      inversedBy: checks
+      joinColumn:
+        name: node
+        nullable: false
+    module:
+      targetEntity: Rummager\Service\Module\Module
+      joinColumn:
+        name: module
+        nullable: false
+    net:
+      targetEntity: Rummager\Service\Network\Ipv4Class
+      joinColumn:
+        name: net
+        nullable: true
+        default: null
+  fields:
+    createTime:
+      type: datetime
+      column: create_time
+      options:
+        default: CURRENT_TIMESTAMP

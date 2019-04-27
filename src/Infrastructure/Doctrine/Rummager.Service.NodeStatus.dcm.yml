@@ -1,0 +1,12 @@
+Rummager\Service\NodeStatus:
+  type: entity
+  table: node_status
+  id:
+    id:
+      type: integer
+  fields:
+    name:
+      length: 45
+  uniqueConstraints:
+    name_idx:
+      columns: [ name ]

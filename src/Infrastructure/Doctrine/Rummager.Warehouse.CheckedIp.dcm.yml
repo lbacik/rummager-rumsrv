@@ -1,0 +1,21 @@
+Rummager\Warehouse\CheckedIp:
+  type: entity
+  table: dw_f_ip
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    date:
+      type: date
+      nullable: false
+    hostid:
+      length: 45
+      nullable: false
+    hosts:
+      type: integer
+      nullable: false
+    smtp:
+      type: integer
+      nullable: false

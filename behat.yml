@@ -1,0 +1,47 @@
+
+default:
+  suites:
+    default:
+      path: '%paths.base%/features'
+      contexts:
+        - Rummager\Behat\FeatureContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "rummager"
+        - Rummager\Behat\ModuleContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "module"
+        - Rummager\Behat\AddHostContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "rummager"
+        - Rummager\Behat\AddNodeContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "rummager"
+        - Rummager\Behat\HostContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "rummager"
+        - Rummager\Behat\NodeContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "rummager"
+        - Rummager\Behat\NetworkContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "network"
+        - Rummager\Behat\NetworkStatusContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "network"
+        - Rummager\Behat\ExceptionContext
+        - Rummager\Behat\CheckContext:
+            serviceFactory: "@service_factory"
+            rummagerRepository: "rummager"
+            moduleRepository: "module"
+            networkRepository: "network"
+            checkRepository: "check"
+        - Rummager\Behat\ModuleSmtpContext:
+            serviceFactory: "@service_factory"
+            repositoryName: "moduleSmtp"
+            checkRepository: "check"
+
+      services:
+        service_factory:
+          class: Rummager\Behat\Base\ServiceFactory
+
+# http://tentacode.net/behat-dependency-injection-phpdi#useyourphpdicontainer

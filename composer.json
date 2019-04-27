@@ -1,0 +1,47 @@
+{
+  "name": "lbacik/rumsrv",
+  "description": "",
+  "homepage": "http://luka.sh",
+  "license": "LGPL-2.1-or-later",
+  "authors": [
+    {
+      "name": "Łukasz Bacik",
+      "email": "mail@luka.sh",
+      "homepage": "http://luka.sh"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "doctrine/orm": "^2.6",
+    "symfony/yaml": "^4.1",
+    "lbacik/value-object": "*",
+    "lbacik/value-object-illuminate-validation": "*",
+    "doctrine/data-fixtures": "^1.3",
+    "ext-mbstring": "^7.2"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^5.0",
+    "behat/behat": "^3.5",
+    "pproenca/behat-bootstrap-file-loader": "^1.0",
+    "phpunit/phpunit": "^7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rummager\\Infrastructure\\": "src/Infrastructure",
+      "Rummager\\": [
+        "src/Rummager/",
+        "src/Infrastructure/Doctrine/Entities/Rummager/"
+      ],
+      "Rummager\\Behat\\": "features/bootstrap"
+    }
+  },
+  "autoload-dev": {
+  },
+  "config": {
+    "process-timeout": 0
+  },
+  "scripts": {
+    "start": "",
+    "test": ""
+  }
+}
