@@ -6,6 +6,7 @@ namespace spec\Rummager\Service\Module;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Psr\Container\ContainerInterface;
 use Rummager\Service\Module\Module as ModuleEntity;
 use Rummager\Service\Module\Factory as ModuleFactory;
 use Rummager\Service\Module\Smtp\Smtp;
@@ -19,12 +20,12 @@ class FactorySpec extends ObjectBehavior
 
     public function let(
         ModuleRepositoryInterface $repository,
-        ServiceProviderInterface $serviceProvider,
+        ContainerInterface $serviceProvider,
         Smtp $smtp
     ) {
         $this->beConstructedWith($repository, $serviceProvider);
 
-        $serviceProvider->offsetGet(self::MODULE_SMTP_NAME)->willReturn($smtp);
+        $serviceProvider->get(self::MODULE_SMTP_NAME)->willReturn($smtp);
     }
 
     public function it_is_initializable()

@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Rummager\Service\Module;
 
+use Psr\Container\ContainerInterface;
 use Rummager\Service\ModuleRepositoryInterface;
-use Rummager\Service\ServiceProviderInterface;
 
 class Factory
 {
     /** @var ModuleRepositoryInterface */
     private $repository;
 
-    /** @var ServiceProviderInterface */
+    /** @var ContainerInterface */
     private $serviceProvider;
 
     public function __construct(
         ModuleRepositoryInterface $repository,
-        ServiceProviderInterface $serviceProvider
+        ContainerInterface $serviceProvider
     ) {
         $this->repository = $repository;
         $this->serviceProvider = $serviceProvider;
@@ -27,14 +27,14 @@ class Factory
     {
         $moduleIdentity = ModuleIdentity::create($id);
         $moduleEntity = $this->repository->module($moduleIdentity);
-        $module = $this->serviceProvider[$moduleEntity->getName()];
+        $module = $this->serviceProvider->get($moduleEntity->getName());
         return $module;
     }
 
     public function moduleByName(string $name): ModuleBase
     {
         $moduleName = ModuleName::create($name);
-        $module = $this->serviceProvider[$moduleName()];
+        $module = $this->serviceProvider->get($moduleName());
         return $module;
     }
 }

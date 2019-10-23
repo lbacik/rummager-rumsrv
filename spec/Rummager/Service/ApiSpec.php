@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace spec\Rummager\Service;
 
+use Psr\Container\ContainerInterface;
 use Rummager\Service\Api;
 use PhpSpec\ObjectBehavior;
 use Rummager\Service\CheckProcess;
@@ -12,13 +13,12 @@ use Rummager\Service\Network\Ipv4Class;
 use Rummager\Service\Module\Smtp\Smtp;
 use Rummager\Service\Network;
 use Rummager\Service\Network\Status as NetworkStatus;
-use Rummager\Service\ServiceProviderInterface;
 use Rummager\Service\Module;
 
 class ApiSpec extends ObjectBehavior
 {
     public function let(
-        ServiceProviderInterface $serviceProvider,
+        ContainerInterface $serviceProvider,
         Host $host,
         CheckProcess $checkProcess,
         Network $network,
@@ -27,11 +27,11 @@ class ApiSpec extends ObjectBehavior
     ) {
         $this->beConstructedWith($serviceProvider);
 
-        $serviceProvider->offsetGet('host')->willReturn($host);
-        $serviceProvider->offsetGet('checkProcess')->willReturn($checkProcess);
-        $serviceProvider->offsetGet('network')->willReturn($network);
-        $serviceProvider->offsetGet('module')->willReturn($module);
-        $serviceProvider->offsetGet('smtp')->willReturn($smtp);
+        $serviceProvider->get('host')->willReturn($host);
+        $serviceProvider->get('checkProcess')->willReturn($checkProcess);
+        $serviceProvider->get('network')->willReturn($network);
+        $serviceProvider->get('module')->willReturn($module);
+        $serviceProvider->get('smtp')->willReturn($smtp);
     }
 
     public function it_is_initializable()
