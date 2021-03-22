@@ -59,6 +59,7 @@ class Host
         return $host->getN();
     }
 
+    /** @throws NotExistingHostException */
     public function getMaxThreads(int $hostId): int
     {
         $host = $this->repository->host(HostIdentity::create($hostId));
