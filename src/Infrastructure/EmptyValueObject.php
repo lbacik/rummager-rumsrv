@@ -11,8 +11,8 @@ use Sushi\ValueObject;
 
 class EmptyValueObject extends ValueObject implements ValueObjectInterface
 {
-    protected $validators = [
+    protected array $validators = [
         KeysValidator::class,
-        IlluminateValidationValidator::class,
+//        IlluminateValidationValidator::class,
     ];
 }

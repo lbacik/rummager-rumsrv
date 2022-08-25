@@ -8,7 +8,7 @@ use Rummager\Infrastructure\OneValueValueObject;
 
 class Ip extends OneValueValueObject
 {
-    protected $keys = [
+    protected array $keys = [
         self::KEY_VALUE => 'required|string|min:7|max:15'
     ];
 }

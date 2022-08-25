@@ -8,7 +8,7 @@ use Rummager\Infrastructure\OneValueValueObject;
 
 class MaskCidr extends OneValueValueObject
 {
-    protected $keys = [
+    protected array $keys = [
         self::KEY_VALUE => 'required|integer|min:0|max:32'
     ];
 }

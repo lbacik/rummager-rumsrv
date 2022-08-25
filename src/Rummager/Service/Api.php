@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rummager\Service;
 
 use Psr\Container\ContainerInterface;
+use Rummager\Service\Host\Exceptions\NotExistingHostException;
 
 class Api
 {
@@ -26,10 +27,14 @@ class Api
 
     public function getNodesRunning(int $hostId): int
     {
-        return $this
-            ->serviceProvider
-            ->get('host')
-            ->nodesRunning($hostId);
+        try {
+            return $this
+                ->serviceProvider
+                ->get('host')
+                ->nodesRunning($hostId);
+        } catch (NotExistingHostException $exception) {
+            return 0;
+        }
     }
 
     public function getHostMaxNodes(int $hostId): int
@@ -42,10 +47,14 @@ class Api
 
     public function getHostMaxThreads(int $hostId): int
     {
-        return $this
-            ->serviceProvider
-            ->get('host')
-            ->getMaxThreads($hostId);
+        try {
+            return $this
+                ->serviceProvider
+                ->get('host')
+                ->getMaxThreads($hostId);
+        } catch (NotExistingHostException $exception) {
+            return 0;
+        }
     }
 
     public function checkNodeIsRunning(int $nodeId): bool

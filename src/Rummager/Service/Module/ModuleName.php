@@ -8,7 +8,7 @@ use Rummager\Infrastructure\OneValueValueObject;
 
 class ModuleName extends OneValueValueObject
 {
-    protected $keys = [
+    protected array $keys = [
         self::KEY_VALUE => 'required|string|min:1|max:45',
     ];
 }

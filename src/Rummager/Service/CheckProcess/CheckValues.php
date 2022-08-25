@@ -15,7 +15,7 @@ class CheckValues extends EmptyValueObject
     const KEY_MODULE = 'module';
     const KEY_NET = 'net';
 
-    protected $keys = [
+    protected array $keys = [
         self::KEY_NODE => 'instance_of:' . Node::class,
         self::KEY_MODULE => 'instance_of:' . Module::class,
         self::KEY_NET => 'nullable|instance_of:' . Ipv4Class::class,

@@ -1,7 +1,10 @@
 <?php
 
-require_once __DIR__ . "/../../../../../vendor/autoload.php";
-require_once __DIR__ . '/../../../../../config/doctrine-bootstrap.php';
+//require_once __DIR__ . "/../../../../../vendor/autoload.php";
+//require_once __DIR__ . '/../../../../../config/doctrine-bootstrap.php';
+
+require_once "/project/vendor/autoload.php";
+require_once '/project/config/doctrine-bootstrap.php';
 
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\Loader;

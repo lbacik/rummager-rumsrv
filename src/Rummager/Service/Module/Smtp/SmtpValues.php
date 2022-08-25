@@ -23,7 +23,7 @@ class SmtpValues extends EmptyValueObject
     const KEY_TCON = 'tcon';
     const KEY_TEND = 'tend';
 
-    protected $keys = [
+    protected array $keys = [
         self::KEY_CHECK => 'instance_of:' . Check::class,
         self::KEY_IP => 'numeric',
         self::KEY_PORT => 'integer',

@@ -8,7 +8,7 @@ use Rummager\Service\Identity;
 
 class NetworkStatusIdentity extends Identity
 {
-    protected $keys = [
+    protected array $keys = [
         self::KEY_VALUE => 'required|integer|min:1',
     ];
 }

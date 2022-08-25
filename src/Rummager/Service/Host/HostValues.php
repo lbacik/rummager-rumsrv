@@ -13,7 +13,7 @@ class HostValues extends EmptyValueObject
     const KEY_THREADS_QUANTITY = 't';
     const KEY_SENDERS_QUANTITY = 's';
 
-    protected $keys = [
+    protected array $keys = [
         self::KEY_NAME => 'instance_of:' . HostName::class,
         self::KEY_NODES_QUANTITY => 'nullable|integer',
         self::KEY_THREADS_QUANTITY => 'nullable|integer',

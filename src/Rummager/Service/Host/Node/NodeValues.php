@@ -12,7 +12,7 @@ class NodeValues extends EmptyValueObject
     const KEY_CHECK = 'check';
     const KEY_HOST = 'host';
 
-    protected $keys = [
+    protected array $keys = [
         self::KEY_CHECK => 'integer',
         self::KEY_HOST => 'instance_of:' . Host::class,
     ];
